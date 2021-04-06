@@ -5,9 +5,9 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ master,mybranch ]
+    branches: [ master, manager ]
   pull_request:
-    branches: [ master,mybranch ]
+    branches: [ master, manager ]
 
 jobs:
   build:
@@ -16,9 +16,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      - name: Set up JDK 11
-        uses: actions/setup-java@v1
-        with:
-          java-version: 11
-      - name: Build with Maven
-        run: mvn -B -e verify
+    - name: Set up JDK 11
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
+    - name: Build with Maven
+      run: mvn -B -e verify
